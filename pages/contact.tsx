@@ -6,7 +6,7 @@ const ContactPage = () => {
   return (
     <div className={styles.layout}>
       <div className={styles.heroSection}>
-        <h1 className={styles.pageTitle}>Let's Connect</h1>
+        <h1 className={styles.pageTitle}>Let&apos;s Connect</h1>
         
       </div>
 
@@ -16,8 +16,8 @@ const ContactPage = () => {
             <div className={styles.infoBox}>
               <h2 className={styles.contactTitle}>Get in Touch</h2>
               <p className={styles.contactDescription}>
-                I'm open to new opportunities, interesting projects, and creative
-                collaborations. Let's build something amazing together!
+                I&apos;m open to new opportunities, interesting projects, and creative
+                collaborations. Let&apos;s build something amazing together!
               </p>
             </div>
             <ContactCode />

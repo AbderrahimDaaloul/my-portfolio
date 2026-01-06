@@ -37,7 +37,7 @@ const ContactCode = () => {
         <span className={styles.bracket}>&#123;</span>
       </p>
       <p className={styles.line}>
-        <span className={styles.property}>\"connections\"</span>
+        <span className={styles.property}>&quot;connections&quot;</span>
         <span className={styles.bracket}>:</span> [
       </p>
       {contactItems.map((item, index) => (
@@ -46,24 +46,24 @@ const ContactCode = () => {
             <span className={styles.bracket}>&#123;</span>
           </p>
           <p className={styles.itemLine}>
-            <span className={styles.property}>\"platform\"</span>
+            <span className={styles.property}>&quot;platform&quot;</span>
             <span className={styles.bracket}>:</span>
             <span className={styles.value}>
-              \"{item.icon} {item.social}\"
+              &quot;{item.icon} {item.social}&quot;
             </span>,
           </p>
           <p className={styles.itemLine}>
-            <span className={styles.property}>\"handle\"</span>
+            <span className={styles.property}>&quot;handle&quot;</span>
             <span className={styles.bracket}>:</span>
             <a href={item.href} target="_blank" rel="noopener" className={styles.link}>
-              \"{item.link}\"
+              &quot;{item.link}&quot;
             </a>,
           </p>
           <p className={styles.itemLine}>
-            <span className={styles.property}>\"url\"</span>
+            <span className={styles.property}>&quot;url&quot;</span>
             <span className={styles.bracket}>:</span>
             <a href={item.href} target="_blank" rel="noopener" className={styles.linkUrl}>
-              \"{item.href}\"
+              &quot;{item.href}&quot;
             </a>
           </p>
           <p className={styles.itemLine}>
