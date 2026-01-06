@@ -8,35 +8,35 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: 'InfoLearn',
+    title: "InfoLearn",
     description:
-      'A small platforme for beginners to learn computer science from scratch.',
-    logo: '/logos/driwwwle.svg',
-    link: 'https://github.com/itsnitinr/driwwwle',
-    slug: 'driwwwle',
+      "A small platforme for beginners to learn computer science from scratch.",
+    logo: "/logos/education.svg",
+    link: "https://github.com/AbderrahimDaaloul/learning-app-front",
+    slug: "learning-app-front",
   },
   {
-    title: 'VSCode Portfolio',
+    title: "Internship management platform",
     description:
-      'A Visual Studio Code themed developer portfolio built with Next.js and CSS Modules.',
-    logo: '/logos/vsc.svg',
-    link: 'https://github.com/itsnitinr/vscode-portfolio',
-    slug: 'vscode-portfolio',
+      "Developed an internship management platform using Spring Boot and PostgreSQL, enabling student applications, internship tracking, supervisor evaluations, and role-based access through a scalable RESTful backend.",
+    logo: "/logos/spring-boot.svg",
+    link: "https://github.com/AbderrahimDaaloul/backend-pfe",
+    slug: "backend-pfe",
   },
   {
-    title: 'Subtrackt',
+    title: "Tours Management APIs",
     description:
-      'A simple and elegant way to track your subscriptions and save money.',
-    logo: '/logos/subtrackt.svg',
-    link: 'https://github.com/itsnitinr/subtrackt',
-    slug: 'subtrackt',
+      "a tours management platform using Express.js and MongoDB, providing RESTful APIs for creating, managing, and querying tour data with secure CRUD operations and scalable backend architecture.”",
+    logo: "/logos/travel.svg",
+    link: "https://github.com/AbderrahimDaaloul/natours",
+    slug: "natours",
   },
   {
-    title: 'Coolify Deployments',
+    title: "Insurance DAPP",
     description:
-      'VSCode extension to track and deploy your Coolify applications.',
-    logo: '/logos/coolify.svg',
-    link: 'https://github.com/itsnitinr/coolify-vscode-extension',
-    slug: 'coolify-vscode-extension',
+      "A decentralized insurance DApp on Ethereum using smart contracts, React for the frontend, and supporting Web3 libraries to enable secure, transparent policy management and claims processing.",
+    logo: "/logos/blockchain.svg",
+    link: "https://github.com/AbderrahimDaaloul/insurance-DAPP",
+    slug: "insurance-DAPP",
   },
 ];
