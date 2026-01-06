@@ -5,14 +5,23 @@ import styles from '@/styles/ContactPage.module.css';
 const ContactPage = () => {
   return (
     <div className={styles.layout}>
-      <h1 className={styles.pageTitle}>Contact Me</h1>
-      <p className={styles.pageSubtitle}>
-        Feel free to reach out to me through any of the social platforms below.
-        I&apos;m always open to new opportunities and connections.
-      </p>
+      <div className={styles.heroSection}>
+        <h1 className={styles.pageTitle}>Let's Connect</h1>
+        
+      </div>
+
       <div className={styles.container}>
-        <div className={styles.contactContainer}>
-          <ContactCode />
+        <div className={styles.contactWrapper}>
+          <div className={styles.contactContent}>
+            <div className={styles.infoBox}>
+              <h2 className={styles.contactTitle}>Get in Touch</h2>
+              <p className={styles.contactDescription}>
+                I'm open to new opportunities, interesting projects, and creative
+                collaborations. Let's build something amazing together!
+              </p>
+            </div>
+            <ContactCode />
+          </div>
         </div>
       </div>
     </div>

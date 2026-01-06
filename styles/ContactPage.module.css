@@ -1,83 +1,311 @@
 .layout {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
-  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.layout::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 20% 50%,
+    rgba(var(--accent-rgb), 0.03) 0%,
+    transparent 50%
+  ),
+  radial-gradient(
+    circle at 80% 80%,
+    rgba(var(--accent-rgb), 0.02) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+.heroSection {
+  text-align: center;
+  padding: 4rem 2rem 3.5rem;
+  margin-bottom: 2.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--accent-rgb), 0.1) 0%,
+    rgba(var(--accent-rgb), 0.03) 100%
+  );
+  border-radius: 16px;
+  border: 1px solid rgba(var(--accent-rgb), 0.2);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(var(--accent-rgb), 0.05) 0%,
+    transparent 70%
+  );
+  animation: float 6s ease-in-out infinite;
+}
+
+.pageTitle {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(
+    135deg,
+    var(--accent-color) 0%,
+    var(--accent-color) 50%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: slideIn 0.8s ease-out 0.2s both;
+}
+
+.pageSubtitle {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  max-width: 700px;
+  line-height: 1.85;
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: 0.4px;
+  position: relative;
+  z-index: 1;
+  animation: slideIn 0.8s ease-out 0.4s both;
 }
 
 .container {
   display: flex;
   justify-content: center;
-}
-
-.container > * {
   flex: 1;
-  max-width: 600px;
+  padding: 1.5rem 1rem 2rem 1rem;
 }
 
-.container h1 {
-  margin-bottom: 2rem;
-  font-size: 1.5rem;
+.contactWrapper {
+  width: 100%;
+  max-width: 700px;
+  padding: 0 0.5rem;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
 }
 
-.flex {
+.contactContent {
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.pageTitle {
-  font-size: 2rem;
-  font-weight: 700;
+.infoBox {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  padding: 1.5rem 1.5rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  margin-bottom: 1.5rem;
+  margin-top: 15rem;
+
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.infoBox::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--accent-rgb), 0.15) 0%,
+    transparent 100%
+  );
+  transition: height 0.6s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.infoBox:hover::before {
+  height: 100%;
+}
+
+.contactTitle {
+  font-size: 1.4rem;
+  font-weight: 800;
   color: var(--accent-color);
-  margin-bottom: 1rem;
-  letter-spacing: -0.03em;
-  line-height: 1.2;
-  text-align: center;
-  padding-top: 3rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.pageSubtitle {
-  font-size: 1rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 3rem;
-  max-width: 600px;
-  line-height: 1.6;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+.contactTitle::before {
+  content: '✉️';
+  font-size: 1.2rem;
+  animation: bounce 2s ease-in-out infinite;
 }
 
-@media screen and (max-width: 1200px) {
-  .container {
-    display: block;
-    padding: 2rem 1rem;
+.contactDescription {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-  .container > div:first-child {
-    border-right: none;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heroSection {
+    padding: 2.5rem 1.5rem 2rem;
     margin-bottom: 2rem;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .flex {
-    display: block;
-  }
-
-  .form input {
-    font-size: 0.85rem;
-  }
-
-  .container {
-    padding: 1.5rem 0.75rem;
   }
 
   .pageTitle {
-    font-size: 1.75rem;
+    font-size: 2.5rem;
   }
 
   .pageSubtitle {
     font-size: 1rem;
-    margin-bottom: 2rem;
+  }
+
+  .container {
+    padding: 2rem 1rem 1.5rem 1rem;
+  }
+
+  .contactWrapper {
+    padding: 0 0.5rem;
+    max-width: 100%;
+  }
+
+  .infoBox {
+    padding: 2.25rem 2rem;
+    border-radius: 14px;
+  }
+
+  .contactTitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .layout {
+    padding: 0;
+  }
+
+  .heroSection {
+    padding: 2rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .pageTitle {
+    font-size: 2rem;
+  }
+
+  .pageSubtitle {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .container {
+    padding: 1.5rem 0.5rem 1rem 0.5rem;
+  }
+
+  .contactWrapper {
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .infoBox {
+    padding: 2rem 1.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 12px;
+  }
+
+  .contactTitle {
+    font-size: 1.35rem;
+  }
+
+  .contactDescription {
+    font-size: 0.9rem;
   }
 }

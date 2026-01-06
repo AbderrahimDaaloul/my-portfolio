@@ -16,16 +16,17 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       rel="noopener noreferrer"
       className={styles.card}
     >
+      <div className={styles.imageWrapper}>
+        <Image
+          src={project.logo}
+          alt={`${project.title} image`}
+          fill
+          className={styles.projectImage}
+          sizes="(max-width: 768px) 100vw, 400px"
+        />
+        <div className={styles.overlay}></div>
+      </div>
       <div className={styles.content}>
-        <div className={styles.logoWrapper}>
-          <Image
-            src={project.logo}
-            alt={`${project.title} logo`}
-            width={24}
-            height={24}
-            className={styles.logo}
-          />
-        </div>
         <h3 className={styles.title}>{project.title}</h3>
         <p className={styles.description}>{project.description}</p>
       </div>

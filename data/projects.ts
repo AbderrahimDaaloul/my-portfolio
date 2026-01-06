@@ -8,9 +8,9 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: 'Driwwwle',
+    title: 'InfoLearn',
     description:
-      'Discover creative websites and developers. A portal for you to share your projects.',
+      'A small platforme for beginners to learn computer science from scratch.',
     logo: '/logos/driwwwle.svg',
     link: 'https://github.com/itsnitinr/driwwwle',
     slug: 'driwwwle',

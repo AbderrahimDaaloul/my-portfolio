@@ -1,37 +1,116 @@
 .container {
   max-width: 900px;
-  height: 100%;
+  min-height: 100vh;
   margin: 0 auto;
   padding: 3rem 1.5rem;
   color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 20% 50%,
+    rgba(var(--accent-rgb), 0.03) 0%,
+    transparent 50%
+  ),
+  radial-gradient(
+    circle at 80% 80%,
+    rgba(var(--accent-rgb), 0.02) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+  z-index: -1;
 }
 
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: fadeInDown 0.8s ease-out;
 }
 
 .title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: var(--accent-color);
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 0.75rem;
+  margin-top: 15rem;
+
   letter-spacing: -0.03em;
+  line-height: 1.1;
+  background: linear-gradient(
+    135deg,
+    var(--accent-color) 0%,
+    var(--accent-color) 50%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: slideIn 0.8s ease-out 0.2s both;
 }
 
 .subtitle {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  margin-bottom: 3rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 3.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  animation: slideIn 0.8s ease-out 0.4s both;
 }
 
 .aboutContent {
   width: 100%;
+  max-width: 800px;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
 }
 
 .section {
   margin-bottom: 2.5rem;
+  padding: 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--accent-rgb), 0.1) 0%,
+    transparent 100%
+  );
+  transition: top 0.6s ease;
+}
+
+.section:hover::before {
+  top: 0;
+}
+
+.section:hover {
+  border-color: rgba(var(--accent-rgb), 0.3);
+  box-shadow: 0 8px 32px rgba(var(--accent-rgb), 0.1);
 }
 
 .section:last-child {
@@ -39,17 +118,31 @@
 }
 
 .sectionTitle {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
   color: var(--accent-color);
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sectionTitle::before {
+  content: '→';
+  font-size: 1.25rem;
+  opacity: 0.8;
 }
 
 .paragraph {
-  margin-bottom: 1.25rem;
-  line-height: 1.7;
-  color: var(--text-color);
-  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.05rem;
+  position: relative;
+  z-index: 1;
 }
 
 .paragraph:last-child {
@@ -58,16 +151,81 @@
 
 .highlight {
   color: var(--accent-color);
-  font-weight: 500;
+  font-weight: 600;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--accent-rgb), 0.2),
+    rgba(var(--accent-rgb), 0.1)
+  );
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .section {
+    padding: 1.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
 }
 
 @media screen and (max-width: 600px) {
   .container {
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
   }
 
   .title {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
   .subtitle {
@@ -75,13 +233,19 @@
     margin-bottom: 2rem;
   }
 
+  .section {
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
   .sectionTitle {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     margin-bottom: 0.75rem;
   }
 
   .paragraph {
     font-size: 0.95rem;
     line-height: 1.65;
+    margin-bottom: 1rem;
   }
 }
